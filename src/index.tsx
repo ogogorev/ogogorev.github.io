@@ -1,15 +1,17 @@
-import Home from './components/home'
-import { Router } from './helpers/router'
 export { default as JSX } from './helpers/jsx'
+import JSX from './helpers/jsx'
+
+import Home from './components/home'
 
 function main() {
 
-  const router = new Router()
+  const app = (
+    <div id="app">
+      <Home />
+    </div>
+  )
 
-  const appDiv = document.createElement('div')
-  appDiv.id = '#app'
-  appDiv.appendChild(Home())
-  document.body.appendChild(appDiv)
+  document.body.appendChild(app)
 }
 
 main()
