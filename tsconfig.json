@@ -2,10 +2,11 @@
   "compilerOptions": {
     "sourceMap": true,
     "outDir": "./dist/",
-    "noImplicitAny": true,
+    "noImplicitAny": false,
     "module": "es6",
     "target": "es5",
     "jsx": "react",
+    "reactNamespace": "JSX",
     "allowJs": true
   },
   "include": [
