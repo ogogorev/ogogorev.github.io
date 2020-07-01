@@ -1,47 +1,50 @@
-// export class Router {
-//   constructor(routes) {
-//     console.log('CURRENT Location', window.location.pathname)
-//     console.log('routes', routes)
-//   }
-// }
-
 import JSX from './jsx'
 
+const navEvent = new Event('router-navigation')
+
 export function Router({ routes }) {
+  const routerContainer = <div></div>
+
+  window.addEventListener('popstate', (e) => {
+    mountRoute(routerContainer, routes)
+  })
+  window.addEventListener('router-navigation', (e) => {
+    mountRoute(routerContainer, routes)
+  })
+
+  mountRoute(routerContainer, routes)
+  return routerContainer
+}
+
+function getCurrentPath() {
   const pathname = window.location.pathname.replace(/^\//, '')
+  return pathname
+}
 
-  window.onpopstate = (e) => {
-    console.log('POP STATE EVENT', e)
+function mountRoute(root, routes) {
+  const pathname = getCurrentPath()
+  const nodeToMount = routes[pathname]
+
+  if (nodeToMount) {
+    root.innerHTML = ''
+    root.appendChild(nodeToMount())
   }
-
-  console.log('CURRENT pathname', pathname)
-  console.log('routes', routes)
-
-  const routeComponent = routes[pathname]
-
-  return routeComponent()
 }
 
 function goTo(path: string) {
-  // const url = window.location.origin + path
   const url = path
-  console.log('GO TO', url)
   window.history.pushState(null, null, url)
+  window.dispatchEvent(navEvent)
 }
 
 function onClick(e: MouseEvent) {
   e.preventDefault()
-  const target = event.target as HTMLAnchorElement
-  console.log('path', target.href)
+  const target = e.target as HTMLAnchorElement
   goTo(target.href)
-
 }
 
 export function Link(props) {
   return (
-    // <div>
-    //   <div onclick={onClick}>test click</div>
     <a href={props.href} onclick={onClick}>{props.children}</a>
-    // </div>
   )
 }
