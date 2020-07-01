@@ -1,5 +1,7 @@
 import JSX from '../helpers/jsx'
 
+import { Link } from '../helpers/router'
+
 export default function Home() {
   const container = (
     <div>
@@ -7,7 +9,9 @@ export default function Home() {
 
       Links:
       <ul>
-        <li><a href="/projects">Projects</a></li>
+        <li>
+          <Link href="/projects">Projects link</Link>
+        </li>
       </ul>
     </div>
   )

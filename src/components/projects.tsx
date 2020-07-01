@@ -1,6 +1,6 @@
 import JSX from '../helpers/jsx'
 
-export function Projects() {
+export default function Projects() {
   return (
     <div>hello from projects</div>
   )
