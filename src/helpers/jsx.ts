@@ -1,19 +1,27 @@
-const JSX = {
-  createElement: function (tagName, attrs = {}, ...children) {
+function createElement(tagName, attrs = {}, ...children) {
+  attrs = attrs || {}
 
-    // console.log('CREATE ELEMENT CALLED', tagName)
-
-    if (typeof (tagName) === 'function') {
-      return tagName()
-    }
-
-    const elem = Object.assign(document.createElement(tagName), attrs)
-    for (const child of children) {
-      if (Array.isArray(child)) elem.append(...child)
-      else elem.append(child)
-    }
-    return elem
+  if (typeof (tagName) === 'function') {
+    return createComponent(tagName, attrs, children)
   }
+
+  const elem = Object.assign(document.createElement(tagName), attrs)
+  for (const child of children) {
+    if (Array.isArray(child)) elem.append(...child)
+    else elem.append(child)
+  }
+
+  return elem
+}
+
+function createComponent(tagName, attrs = {}, ...children) {
+  const node = tagName({ ...attrs, children })
+  return node
+}
+
+const JSX = {
+  createElement,
+  createComponent
 }
 
 export default JSX
