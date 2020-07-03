@@ -1,0 +1,7 @@
+.navigation {
+  background-color: grey;
+}
+
+.navigation__link {
+  margin: 0 10px;
+}

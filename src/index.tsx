@@ -7,6 +7,8 @@ import Home from './components/home'
 import Projects from './components/projects'
 import Navigation from './components/nav'
 
+import './styles/styles.css'
+
 const routes = {
   '': Home,
   'projects': Projects

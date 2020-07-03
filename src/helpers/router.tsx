@@ -45,6 +45,10 @@ function onClick(e: MouseEvent) {
 
 export function Link(props) {
   return (
-    <a href={props.href} onclick={onClick}>{props.children}</a>
+    <a
+      href={props.href}
+      className={props.className}
+      onclick={onClick}
+    >{props.children}</a>
   )
 }
