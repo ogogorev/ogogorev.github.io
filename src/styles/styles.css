@@ -1,7 +1,9 @@
-.navigation {
-  background-color: grey;
-}
-
-.navigation__link {
-  margin: 0 10px;
+body {
+  font-family: -apple-system, system-ui, BlinkMacSystemFont,
+    'Segoe UI', 'Roboto', 'Oxygen', 
+    'Ubuntu', 'Cantarell', 'Fira Sans', 
+    'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+    
+  margin: 0;
 }
