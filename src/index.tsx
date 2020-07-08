@@ -5,7 +5,7 @@ import { Router } from './helpers/router'
 
 import Home from './components/home'
 import Projects from './components/projects'
-import Navigation from './components/nav'
+import Navigation from './components/nav/nav'
 
 import './styles/styles.css'
 
