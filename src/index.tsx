@@ -3,9 +3,9 @@ import JSX from './helpers/jsx'
 
 import { Router } from './helpers/router'
 
-import Home from './components/home'
-import Projects from './components/projects'
-import Navigation from './components/nav/nav'
+import Home from './pages/home/home'
+import Projects from './pages/projects/projects'
+import Footer from './components/footer/footer'
 
 import './styles/styles.css'
 
@@ -18,9 +18,11 @@ function main() {
   const app = (
     <div id="app">
       <Router routes={routes} />
-      <Navigation />
+      <Footer />
     </div>
   )
+
+  app.style.minHeight = window.innerHeight + 'px'
 
   document.body.appendChild(app)
 }
