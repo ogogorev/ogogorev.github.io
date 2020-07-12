@@ -43,6 +43,11 @@ function onClick(e: MouseEvent) {
   goTo(target.href)
 }
 
+export function navigate(path: string) {
+  const url = window.location.origin + path
+  goTo(url)
+}
+
 export function Link(props) {
   return (
     <a
