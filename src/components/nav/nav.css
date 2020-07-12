@@ -1,4 +1,34 @@
 .navigation {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.navigation__content {
+  width: 100%;
+  height: 100%;
+
+  background-color: #f2f2f2;
+}
+
+.navigation__menu {
+  text-align: center;
+  padding: 20px;
+}
+
+.navigation__link {
+  font-weight: 900;
+  font-size: 20px;
+  color: #000;
+  margin: 0 10px;
+
+  text-decoration: none;
+}
+
+/* ===============================  */
+/* Old styles, remove later */
+
+/* .navigation {
   position: fixed;
   bottom: 0;
   
@@ -10,35 +40,18 @@
 
   transition: transform 0.5 ease;
   -webkit-transition: -webkit-transform 0.5s ease;
-}
+} */
 
-.navigation__placeholder {
+/* .navigation__placeholder {
   position: relative;
   opacity: 0.5;
   background: #555;
   height: 50%;
 
   z-index: 1;
-}
+} */
 
-.navigation__content {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  height: 50%;
-
-  background-color: #eee;
-
-  transform: translateY(-100%);
-
-  z-index: 2;
-  box-sizing: border-box;
-  transition: transform 0.5 ease;
-  -webkit-transition: -webkit-transform 0.5s ease;
-}
-
-.navigation.opened {
+/* .navigation.opened {
   transform: translateY(0);
 }
 
@@ -48,18 +61,4 @@
 
 .navigation__content .toggle-menu-button {
   height: 40px;
-}
-
-.navigation__menu {
-  text-align: center;
-  padding: 20px 0 0;
-}
-
-.navigation__link {
-  font-weight: 900;
-  font-size: 20px;
-  color: #000;
-  margin: 0 10px;
-
-  text-decoration: none;
-}
+} */
