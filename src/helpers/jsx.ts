@@ -25,7 +25,7 @@ function createElement(tagName, attrs = {}, ...children) {
   return elem
 }
 
-function createComponent(tagName, attrs = {}, ...children) {
+function createComponent(tagName, attrs = {}, children) {
   const node = tagName({ ...attrs, children })
   return node
 }
