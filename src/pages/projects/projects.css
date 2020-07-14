@@ -7,14 +7,21 @@
   margin: 0 0 50px;
 }
 
-.project-card {}
+.project-card-container {
+  text-decoration: none;
+}
 
 .project-card__title {
+  color: black;
   margin: 0 0 10px;
 }
 
 .project-card__desc {
   color: #aaa;
   margin: 0;
+}
+
+.project-card:hover .project-card__title {
+  text-decoration: underline;
 }
   
