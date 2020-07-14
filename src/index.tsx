@@ -2,6 +2,7 @@ export { default as JSX } from './helpers/jsx'
 import JSX from './helpers/jsx'
 
 import { Router } from './helpers/router'
+import state from './state/state'
 
 import Home from './pages/home/home'
 import Projects from './pages/projects/projects'
@@ -15,6 +16,8 @@ const routes = {
 }
 
 function main() {
+  state.init()
+
   const app = (
     <div id="app">
       <Router routes={routes} />
