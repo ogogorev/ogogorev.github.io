@@ -18,14 +18,21 @@ module.exports = {
         ],
       },
       {
+        test: /\.md$/,
+        use: [
+          { loader: path.resolve('loaders/md-loader.js') }
+        ],
+        exclude: /node_modules/,
+      },
+      {
         test: /\.tsx?$/,
         use: 'ts-loader',
         exclude: /node_modules/,
-      },
+      }
     ],
   },
   resolve: {
-    extensions: ['.tsx', '.ts', '.js'],
+    extensions: ['.tsx', '.ts', '.js', '.md'],
   },
   output: {
     filename: 'bundle.js',
