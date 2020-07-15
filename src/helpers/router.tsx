@@ -1,6 +1,7 @@
 import JSX from './jsx'
 
 const navEvent = new Event('router-navigation')
+let mountedRoute = null
 
 export function Router({ routes }) {
   const routerContainer = <div></div>
@@ -16,18 +17,20 @@ export function Router({ routes }) {
   return routerContainer
 }
 
-function getCurrentPath() {
-  const pathname = window.location.pathname.replace(/^\//, '')
+function getCurrentPath(): string[] {
+  const pathname = window.location.pathname.replace(/^\//, '').split('/')
   return pathname
 }
 
 function mountRoute(root, routes) {
   const pathname = getCurrentPath()
-  const nodeToMount = routes[pathname]
+  const route = pathname[0]
+  const nodeToMount = routes[route]
 
-  if (nodeToMount) {
+  if (nodeToMount && route !== mountedRoute) {
     root.innerHTML = ''
     root.appendChild(nodeToMount())
+    mountedRoute = route
   }
 }
 
@@ -37,15 +40,14 @@ function goTo(path: string) {
   window.dispatchEvent(navEvent)
 }
 
-function onClick(e: MouseEvent) {
-  e.preventDefault()
-  const target = e.target as HTMLAnchorElement
-  goTo(target.href)
-}
-
 export function navigate(path: string) {
   const url = window.location.origin + path
   goTo(url)
+}
+
+function onClick(e: MouseEvent) {
+  e.preventDefault()
+  goTo(this.href)
 }
 
 export function Link(props) {
