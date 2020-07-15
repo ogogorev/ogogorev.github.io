@@ -5,10 +5,11 @@ import state from '../../state/state'
 import './projects.css'
 
 function Card({ data }) {
-  const { title, text } = data
+  const { title, text, path } = data
+  const href = 'projects/' + path
 
   const root = (
-    <Link href={`/projects/dsfsdf`} className="project-card-container">
+    <Link href={href} className="project-card-container">
       <div className="project-card">
         <h3 className="project-card__title">{title}</h3>
         <p className="project-card__desc">{text}</p>
@@ -19,7 +20,7 @@ function Card({ data }) {
 }
 
 export default function Projects() {
-  const projects = state.get('projects')
+  const projects = state.get('projectInfos')
 
   return (
     <div>

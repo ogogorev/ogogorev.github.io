@@ -1,16 +1,12 @@
 import projectList from '../../data/projects/list.md'
 
-interface IProjectInfo {
-  title: string,
-  text: string,
-  path: string,
-}
+interface IProjectInfo { title: string, text: string, path: string }
 
 interface IState {
-  projects: IProjectInfo[]
+  projectInfos: IProjectInfo[],
 }
 
-const state: IState = { projects: [] }
+const state: IState = { projectInfos: [] }
 
 function initProjectList() {
   const projectNodes = projectList
@@ -35,7 +31,7 @@ function initProjectList() {
 }
 
 function init() {
-  state.projects = initProjectList()
+  state.projectInfos = initProjectList()
 }
 
 function get(key) {
