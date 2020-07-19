@@ -8,9 +8,11 @@ export function Router({ routes }) {
 
   window.addEventListener('popstate', e => {
     mountRoute(routerContainer, routes)
+    sendRouteChangeEvent()
   })
   window.addEventListener('router-navigation', e => {
     mountRoute(routerContainer, routes)
+    sendRouteChangeEvent()
   })
 
   mountRoute(routerContainer, routes)
@@ -47,6 +49,13 @@ function goTo(path: string) {
 
 export function navigate(path: string) {
   goTo(path)
+}
+
+function sendRouteChangeEvent() {
+  const routeChangeEvent = new CustomEvent('route-change', {
+    detail: { currentPath: getCurrentPath() }
+  })
+  window.dispatchEvent(routeChangeEvent)
 }
 
 function onClick(e: MouseEvent) {

@@ -22,6 +22,10 @@ function Card({ data }) {
 export default function Projects() {
   const projects = state.get('projectInfos')
 
+  window.addEventListener('route-change', (e: CustomEvent) => {
+    console.log('route change', e.detail)
+  })
+
   return (
     <div>
       <ul className="project-list">
