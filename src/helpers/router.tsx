@@ -6,10 +6,10 @@ let mountedRoute = null
 export function Router({ routes }) {
   const routerContainer = <div></div>
 
-  window.addEventListener('popstate', (e) => {
+  window.addEventListener('popstate', e => {
     mountRoute(routerContainer, routes)
   })
-  window.addEventListener('router-navigation', (e) => {
+  window.addEventListener('router-navigation', e => {
     mountRoute(routerContainer, routes)
   })
 
@@ -35,27 +35,29 @@ function mountRoute(root, routes) {
 }
 
 function goTo(path: string) {
-  const url = path
+  if (path[0] !== '/') {
+    path = '/' + path
+  }
+
+  const url = `${window.location.origin}${path}`
+
   window.history.pushState(null, null, url)
   window.dispatchEvent(navEvent)
 }
 
 export function navigate(path: string) {
-  const url = window.location.origin + path
-  goTo(url)
+  goTo(path)
 }
 
 function onClick(e: MouseEvent) {
   e.preventDefault()
-  goTo(this.href)
+  goTo(this.getAttribute('href'))
 }
 
 export function Link(props) {
   return (
-    <a
-      href={props.href}
-      className={props.className}
-      onclick={onClick}
-    >{props.children}</a>
+    <a href={props.href} className={props.className} onclick={onClick}>
+      {props.children}
+    </a>
   )
 }
