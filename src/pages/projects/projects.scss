@@ -1,0 +1,58 @@
+.project-list {
+  $r: &;
+
+  margin: 0;
+
+  &__item {
+    list-style: none;
+    margin: 0 0 50px;
+  }
+
+  &__item-link {
+    text-decoration: none;
+  }
+
+  // collapsed list
+  &.collapsed {
+    #{$r}__item {
+      list-style: none;
+      margin: 0;
+
+      &-link {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background-color: black;
+
+        &.active {
+          background-color: purple;
+        }
+      }
+
+      .project-card {
+        display: none;
+      }
+    }
+  }
+}
+
+.project-card {
+  $r: &;
+
+  &__title {
+    color: black;
+    margin: 0 0 10px;
+  }
+
+  &__desc {
+    color: #aaa;
+    margin: 0;
+  }
+
+  &:hover {
+    #{$r}__title {
+      text-decoration: underline;
+    }
+  }
+}

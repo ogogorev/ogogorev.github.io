@@ -3,7 +3,7 @@ import WatchVar from '../../helpers/watch-var'
 import { Link } from '../../helpers/router'
 import state from '../../state/state'
 
-import './projects.css'
+import './projects.scss'
 
 /**
  *
