@@ -19,7 +19,7 @@ export function Router({ routes }) {
   return routerContainer
 }
 
-function getCurrentPath(): string[] {
+export function getCurrentPath(): string[] {
   const pathname = window.location.pathname.replace(/^\//, '').split('/')
   return pathname
 }

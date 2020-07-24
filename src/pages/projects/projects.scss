@@ -1,7 +1,11 @@
+.projects-container {}
+
 .project-list {
   $r: &;
 
-  margin: 0;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 100px 0 0;
 
   &__item {
     list-style: none;
@@ -14,16 +18,24 @@
 
   // collapsed list
   &.collapsed {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+
     #{$r}__item {
       list-style: none;
-      margin: 0;
+      margin: 0 10px;
 
       &-link {
         display: inline-block;
-        width: 20px;
-        height: 20px;
+        width: 10px;
+        height: 10px;
         border-radius: 50%;
-        background-color: black;
+        background-color: #ccc;
 
         &.active {
           background-color: purple;

@@ -1,21 +1,19 @@
 import JSX from '../../helpers/jsx'
 import WatchVar from '../../helpers/watch-var'
-import { Link } from '../../helpers/router'
+import { Link, getCurrentPath } from '../../helpers/router'
 import state from '../../state/state'
 
 import './projects.scss'
 
 /**
  *
- * - при нажатии на один из проектов список с проектами уезжает вверх
- *   и превращается в точки.
- * - Позднее эти точки должны будут быть на одном уровне с хэдером.
- *   Но для первой версии можно поместить их под ним.
- *   Точка с выбранным проектом окрашена в фиолетовый цвет (выбрать цвет)
+ * - при нажатии на один из проектов каждый проект схлопывается в точку и уезжает влево.
+ * - Точка с выбранным проектом окрашена в фиолетовый цвет (выбрать цвет)
  * - выбранный проект подъезжает снизу вверх.
  * - при выборе другого проекта проекты проматываются вниз или вверх.
  * - при нажатии "назад" в браузере все тоже должно быть анимировано
  * - если сразу открыть какой нибудь проекты - точки уже на месте
+ * - при прокручивании проектов, точки тоже меняются
  *
  *
  */
@@ -33,23 +31,25 @@ function Card({ data }) {
 
 export default function Projects() {
   const projects = state.get('projectInfos')
-
   const selectedProject = new WatchVar('')
 
-  window.addEventListener('route-change', (e: CustomEvent) => {
-    console.log('route change', e.detail)
-    const currentPath = e.detail.currentPath
+  function init() {
+    window.addEventListener('route-change', (e: CustomEvent) => {
+      handleCurrentPath()
+    })
 
-    if (currentPath[1]) {
-      selectedProject._ = currentPath[1]
-    }
+    selectedProject.s((selected, prev) => {
+      updateSelectedLink(selected, prev)
+    })
 
-    currentPath[1] ? collapseList() : expandList()
-  })
+    handleCurrentPath()
+  }
 
-  selectedProject.s((selected, prev) => {
-    updateSelectedLink(selected, prev)
-  })
+  function handleCurrentPath() {
+    const path = getCurrentPath()
+    path[1] && (selectedProject._ = path[1])
+    path[1] ? collapseList() : expandList()
+  }
 
   function updateSelectedLink(selected, prev) {
     const linkNode = projectLinkNodes[selected]
@@ -89,7 +89,9 @@ export default function Projects() {
     </ul>
   )
 
-  const root = <div>{projectList}</div>
+  init()
+
+  const root = <div className="projects-container">{projectList}</div>
 
   return root
 }
