@@ -4,6 +4,7 @@ import { Link, getCurrentPath } from '../../helpers/router'
 import state from '../../state/state'
 
 import './projects.scss'
+import { transformJsonToDOM } from '../../helpers/json-to-dom'
 
 /**
  *
@@ -30,8 +31,11 @@ function Card({ data }) {
 }
 
 export default function Projects() {
-  const projects = state.get('projectInfos')
+  const projectInfos = state.get('projectInfos')
+  const projects = state.get('projects')
   const selectedProject = new WatchVar('')
+
+  console.log('projects, infos', projects, projectInfos)
 
   function init() {
     window.addEventListener('route-change', (e: CustomEvent) => {
@@ -42,13 +46,29 @@ export default function Projects() {
       updateSelectedLink(selected, prev)
     })
 
-    handleCurrentPath()
+    setTimeout(() => {
+      handleCurrentPath()
+    }, 0)
   }
 
   function handleCurrentPath() {
     const path = getCurrentPath()
-    path[1] && (selectedProject._ = path[1])
-    path[1] ? collapseList() : expandList()
+    const currentProject = path[1] ? path[1] : null
+    selectedProject._ = currentProject
+    currentProject ? collapseList() : expandList()
+
+    if (currentProject) {
+      const prevAct = document.querySelector('.project-post.active')
+      console.log('PREV ACT', prevAct)
+      prevAct && prevAct.classList.remove('active')
+      const curAct = document.querySelector(`#${currentProject}.project-post`)
+      console.log('CUR ACT', curAct)
+      curAct && curAct.classList.add('active')
+
+      projectPosts.classList.add('active')
+    } else {
+      projectPosts.classList.remove('active')
+    }
   }
 
   function updateSelectedLink(selected, prev) {
@@ -73,7 +93,7 @@ export default function Projects() {
   }
 
   const projectLinkNodes = {}
-  for (const p of projects) {
+  for (const p of projectInfos) {
     projectLinkNodes[p.path] = (
       <Link href={'projects/' + p.path} className="project-list__item-link">
         <Card data={p} />
@@ -89,9 +109,24 @@ export default function Projects() {
     </ul>
   )
 
-  init()
+  const projectPosts = (
+    <div className="project-posts">
+      {projects.map(p => (
+        <div id={p.path} className="project-post">
+          {transformJsonToDOM(p.content)}
+        </div>
+      ))}
+    </div>
+  )
 
-  const root = <div className="projects-container">{projectList}</div>
+  const root = (
+    <div className="projects-container">
+      {projectList}
+      {projectPosts}
+    </div>
+  )
+
+  init()
 
   return root
 }

@@ -1,11 +1,12 @@
-.projects-container {}
+.projects-container {
+}
 
 .project-list {
   $r: &;
 
-  max-width: 600px;
+  // max-width: 600px;
   margin: 0 auto;
-  padding: 100px 0 0;
+  padding: 60px 30px 0;
 
   &__item {
     list-style: none;
@@ -66,5 +67,26 @@
     #{$r}__title {
       text-decoration: underline;
     }
+  }
+}
+
+.project-posts {
+  display: none;
+  margin: 0 40px;
+
+  &.active {
+    display: block;
+  }
+}
+
+.project-post {
+  opacity: 0;
+  height: 0;
+  transition: opacity 0.4s;
+  overflow: hidden;
+
+  &.active {
+    opacity: 1;
+    height: auto;
   }
 }
