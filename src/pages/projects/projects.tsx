@@ -7,19 +7,6 @@ import './projects.scss'
 import { transformJsonToDOM } from '../../helpers/json-to-dom'
 import BurgerIcon from '../../components/burger-icon/burger-icon'
 
-/**
- *
- * - при нажатии на один из проектов каждый проект схлопывается в точку и уезжает влево.
- * - Точка с выбранным проектом окрашена в фиолетовый цвет (выбрать цвет)
- * - выбранный проект подъезжает снизу вверх.
- * - при выборе другого проекта проекты проматываются вниз или вверх.
- * - при нажатии "назад" в браузере все тоже должно быть анимировано
- * - если сразу открыть какой нибудь проекты - точки уже на месте
- * - при прокручивании проектов, точки тоже меняются
- *
- *
- */
-
 function Card({ data }) {
   const { title, text } = data
   const root = (
@@ -40,7 +27,7 @@ export default function Projects() {
 
   function init() {
     window.addEventListener('route-change', (e: CustomEvent) => {
-      handleCurrentPath()
+      update()
     })
 
     selectedProject.s((selected, prev) => {
@@ -48,11 +35,11 @@ export default function Projects() {
     })
 
     setTimeout(() => {
-      handleCurrentPath()
+      update()
     }, 0)
   }
 
-  function handleCurrentPath() {
+  function update() {
     const path = getCurrentPath()
     const currentProject = path[1] ? path[1] : null
     selectedProject._ = currentProject
@@ -67,6 +54,8 @@ export default function Projects() {
       hideActiveProjectPost()
       projectPosts.classList.remove('active')
     }
+
+    window.scrollTo(0, 0)
   }
 
   function hideActiveProjectPost() {
