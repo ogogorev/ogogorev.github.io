@@ -1,12 +1,17 @@
 import projectList from '../../data/projects/list.md'
 
-interface IProjectInfo { title: string, text: string, path: string }
-
-interface IState {
-  projectInfos: IProjectInfo[],
+interface IProjectInfo {
+  title: string
+  text: string
+  path: string
 }
 
-const state: IState = { projectInfos: [] }
+interface IState {
+  projectInfos: IProjectInfo[]
+  projects: Array<{ path: string; content: any }>
+}
+
+const state: IState = { projectInfos: [], projects: [] }
 
 function initProjectList() {
   const projectNodes = projectList
@@ -30,8 +35,21 @@ function initProjectList() {
   return projects
 }
 
-function init() {
+async function initProjectContents() {
+  const projects = []
+  for (const info of state.projectInfos) {
+    const mod = await import(`../../data/projects/${info.path}.md`)
+    projects.push({
+      path: info.path,
+      content: mod.default,
+    })
+  }
+  return projects
+}
+
+async function init() {
   state.projectInfos = initProjectList()
+  state.projects = await initProjectContents()
 }
 
 function get(key) {
@@ -40,5 +58,5 @@ function get(key) {
 
 export default {
   init,
-  get
+  get,
 }

@@ -10,13 +10,17 @@ import Footer from './components/footer/footer'
 
 import './styles/styles.css'
 
+setTimeout(() => {
+  document.body.className = ''
+}, 1000)
+
 const routes = {
   '': Home,
-  'projects': Projects
+  projects: Projects,
 }
 
-function main() {
-  state.init()
+async function main() {
+  await state.init()
 
   const app = (
     <div id="app">
