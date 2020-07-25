@@ -1,5 +1,5 @@
 const SVG_TAGS = [
-  'svg', 'path', 'g', 'animate'
+  'svg', 'path', 'g', 'animate', 'rect'
 ]
 
 function createElement(tagName, attrs = {}, ...children) {
