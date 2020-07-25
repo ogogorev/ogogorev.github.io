@@ -5,6 +5,7 @@ import state from '../../state/state'
 
 import './projects.scss'
 import { transformJsonToDOM } from '../../helpers/json-to-dom'
+import BurgerIcon from '../../components/burger-icon/burger-icon'
 
 /**
  *
@@ -58,17 +59,24 @@ export default function Projects() {
     currentProject ? collapseList() : expandList()
 
     if (currentProject) {
-      const prevAct = document.querySelector('.project-post.active')
-      console.log('PREV ACT', prevAct)
-      prevAct && prevAct.classList.remove('active')
-      const curAct = document.querySelector(`#${currentProject}.project-post`)
-      console.log('CUR ACT', curAct)
-      curAct && curAct.classList.add('active')
+      hideActiveProjectPost()
+      displayCurrentProjectPost(currentProject)
 
       projectPosts.classList.add('active')
     } else {
+      hideActiveProjectPost()
       projectPosts.classList.remove('active')
     }
+  }
+
+  function hideActiveProjectPost() {
+    const node = document.querySelector('.project-post.active')
+    node && node.classList.remove('active')
+  }
+
+  function displayCurrentProjectPost(projectName) {
+    const node = document.querySelector(`#${projectName}.project-post`)
+    node && node.classList.add('active')
   }
 
   function updateSelectedLink(selected, prev) {
@@ -103,6 +111,11 @@ export default function Projects() {
 
   const projectList = (
     <ul className="project-list">
+      <li className="project-list__item">
+        <Link href={'projects'} className="project-list__list-btn">
+          <BurgerIcon width="10" height="10" />
+        </Link>
+      </li>
       {Object.values(projectLinkNodes).map(link => (
         <li className="project-list__item">{link}</li>
       ))}
