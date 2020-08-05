@@ -1,3 +1,5 @@
+@import './breakpoints.scss';
+
 body {
   font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI',
     'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
@@ -17,4 +19,12 @@ body.preload * {
   position: relative;
   box-sizing: border-box;
   padding-bottom: 100px;
+}
+
+.margin {
+  margin: 0 10px;
+
+  @include custom-breakpoint-up(375px) {
+    margin: 0 20px;
+  }
 }

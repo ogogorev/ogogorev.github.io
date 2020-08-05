@@ -9,7 +9,7 @@ import Projects from './pages/projects/projects'
 import Header from './components/header/header'
 import Footer from './components/footer/footer'
 
-import './styles/styles.css'
+import './styles/styles.scss'
 
 setTimeout(() => {
   document.body.className = ''
