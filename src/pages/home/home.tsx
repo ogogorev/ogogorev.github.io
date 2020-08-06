@@ -15,7 +15,7 @@ export default function Home() {
   </p>
 
   const container: HTMLElement = (
-    <div>
+    <div className="margin">
       <h1 style="margin-top: 0">Roman Gorev</h1>
       <h3>Front-end developer</h3>
 
