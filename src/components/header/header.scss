@@ -1,4 +1,24 @@
+@import '../../styles/breakpoints.scss';
+
 .header {
-  height: 80px;
+  height: 60px;
   background-color: #f8f8f8;
+
+  &__content {
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  &__logo {
+    line-height: 50px;
+
+    svg {
+      vertical-align: middle;
+    }
+
+    @include custom-breakpoint-up(375px) {
+      margin-left: -18px;
+    }
+  }
 }

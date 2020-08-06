@@ -1,6 +1,6 @@
 import JSX from '../../helpers/jsx'
 
-export default function Logo() {
+export default function Logo({ size }) {
   const startAnim = (
     <animate
       id="start"
@@ -25,7 +25,7 @@ export default function Logo() {
   )
 
   const svg = (
-    <svg width="60" height="60" viewBox="0 0 100 100">
+    <svg width={size} height={size} viewBox="0 0 100 100">
       <path
         stroke-width="20"
         stroke="#4B0082"
