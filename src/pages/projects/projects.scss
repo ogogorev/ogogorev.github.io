@@ -1,3 +1,5 @@
+@import '../../styles/breakpoints.scss';
+
 .projects-container {
 }
 
@@ -57,6 +59,10 @@
       display: block;
     }
   }
+
+  @include custom-breakpoint-up(375px) {
+    margin: 0;
+  }
 }
 
 .project-card {
@@ -85,6 +91,10 @@
 
   &.active {
     height: auto;
+  }
+
+  @include custom-breakpoint-up(375px) {
+    margin: 0;
   }
 }
 

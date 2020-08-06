@@ -18,7 +18,7 @@ body {
   margin: 0 15px;
 
   @include custom-breakpoint-up(375px) {
-    margin: 0 20px;
+    margin: 0 35px;
   }
 
   @include custom-breakpoint-up(425px) {
