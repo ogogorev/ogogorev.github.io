@@ -4,9 +4,8 @@
 .project-list {
   $r: &;
 
-  // max-width: 600px;
-  margin: 0 auto;
-  padding: 60px 30px 0;
+  margin: 0 0 0 20px;
+  padding: 60px 0 0;
 
   &__item {
     list-style: none;
@@ -24,6 +23,8 @@
   // collapsed list
   &.collapsed {
     position: fixed;
+    top: 0;
+    left: 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -80,7 +81,7 @@
 
 .project-posts {
   height: 0;
-  margin: 0 30px 0 40px;
+  margin: 0 0 0 20px;
 
   &.active {
     height: auto;

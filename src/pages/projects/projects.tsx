@@ -122,7 +122,7 @@ export default function Projects() {
   )
 
   const root = (
-    <div className="projects-container">
+    <div className="projects-container margin">
       {projectList}
       {projectPosts}
     </div>
