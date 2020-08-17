@@ -89,6 +89,8 @@ export default function Projects() {
     projectList.classList.remove('collapsed')
   }
 
+  // render
+  
   const projectLinkNodes = {}
   for (const p of projectInfos) {
     projectLinkNodes[p.path] = (
