@@ -101,7 +101,7 @@ export default function Projects() {
   const projectList = (
     <ul className="project-list">
       <li className="project-list__item">
-        <Link href={'projects'} className="project-list__list-btn">
+        <Link href={'projects'} className="project-list__list-link">
           <BurgerIcon width="10" height="10" />
         </Link>
       </li>

@@ -22,6 +22,15 @@ body {
   }
 
   @include custom-breakpoint-up(425px) {
-    margin: 0 24px;
+    margin: 0 40px;
+  }
+
+  @include phone-up() {
+    margin: 0 60px;
+  }
+
+  @include tablet-up() {
+    max-width: 600px;
+    margin: 0 auto;
   }
 }
