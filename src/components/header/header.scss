@@ -14,7 +14,7 @@
     line-height: 50px;
 
     svg {
-      vertical-align: middle;
+      vertical-align: top;
     }
 
     @include custom-breakpoint-up(375px) {
