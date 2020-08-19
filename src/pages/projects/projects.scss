@@ -45,8 +45,29 @@
         border-radius: 50%;
         background-color: #ccc;
 
+        position: relative;
+
+        &::after {
+          content: '';
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          border-radius: 50%;
+          border: 5px solid $main-color;
+          transform: translate(-50%, -50%) scale(0);
+          transition: transform 0.2s linear;
+        }
+
+        &:hover {
+          &::after {
+            transform: translate(-50%, -50%) scale(0.5);
+          }
+        }
+
         &.active {
-          background-color: $main-color;
+          &::after {
+            transform: translate(-50%, -50%) scale(1);
+          }
         }
       }
 
@@ -69,6 +90,10 @@
         &-link {
           width: 12px;
           height: 12px;
+
+          &::after {
+            border-width: 6px;
+          }
         }
       }
 
