@@ -29,6 +29,10 @@
     margin: 0;
 
     text-decoration: none;
+
+    &:hover {
+      color: $main-color;
+    }
   }
 
   &__external-links-container {
@@ -40,9 +44,16 @@
         margin-right: 0;
       }
 
-      img {
+      svg {
         vertical-align: middle;
-        width: 20px;
+      }
+
+      &:hover {
+        svg {
+          path {
+            fill: $main-color;
+          }
+        }
       }
     }
   }
