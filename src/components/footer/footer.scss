@@ -16,7 +16,7 @@
   &__menu {
     display: flex;
     text-align: center;
-    padding: 20px 0;
+    padding: 14px 0;
 
     flex-direction: row;
     justify-content: space-between;
@@ -26,18 +26,18 @@
     font-weight: 900;
     font-size: 20px;
     color: #000;
+    border-bottom: 2px solid transparent;
     margin: 0;
 
     text-decoration: none;
 
     &:hover {
-      color: $main-color;
+      border-color: $main-color;
     }
   }
 
   &__external-links-container {
     a {
-      line-height: 20px;
       margin: 0 12px;
 
       &:last-child {
@@ -45,15 +45,7 @@
       }
 
       svg {
-        vertical-align: middle;
-      }
-
-      &:hover {
-        svg {
-          path {
-            fill: $main-color;
-          }
-        }
+        margin-bottom: -2px;
       }
     }
   }
