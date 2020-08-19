@@ -105,7 +105,9 @@
 
   &:hover {
     #{$r}__title {
-      text-decoration: underline;
+      span {
+        border-bottom: 2px solid $main-color;
+      }
     }
   }
 }

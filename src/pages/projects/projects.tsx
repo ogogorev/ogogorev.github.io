@@ -11,7 +11,9 @@ function Card({ data }) {
   const { title, text } = data
   const root = (
     <div className="project-card">
-      <h3 className="project-card__title">{title}</h3>
+      <h3 className="project-card__title">
+        <span>{title}</span>
+      </h3>
       <p className="project-card__desc">{text}</p>
     </div>
   )
@@ -90,7 +92,7 @@ export default function Projects() {
   }
 
   // render
-  
+
   const projectLinkNodes = {}
   for (const p of projectInfos) {
     projectLinkNodes[p.path] = (
