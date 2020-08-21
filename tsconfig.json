@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "sourceMap": true,
-    "outDir": "./dist/",
+    "outDir": "./docs/",
     "noImplicitAny": false,
     "module": "es2020",
     "target": "es5",
