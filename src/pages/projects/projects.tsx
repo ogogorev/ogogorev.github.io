@@ -25,8 +25,6 @@ export default function Projects() {
   const projects = state.get('projects')
   const selectedProject = new WatchVar('')
 
-  console.log('projects, infos', projects, projectInfos)
-
   function init() {
     window.addEventListener('route-change', (e: CustomEvent) => {
       update()

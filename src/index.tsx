@@ -11,10 +11,6 @@ import Footer from './components/footer/footer'
 
 import './styles/styles.scss'
 
-setTimeout(() => {
-  document.body.className = ''
-}, 1000)
-
 const routes = {
   '': Home,
   projects: Projects,
