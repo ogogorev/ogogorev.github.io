@@ -1,5 +1,3 @@
-import projectList from '../../data/projects/list.md'
-
 interface IProjectInfo {
   title: string
   text: string
@@ -13,19 +11,20 @@ interface IState {
 
 const state: IState = { projectInfos: [], projects: [] }
 
-function initProjectList() {
-  const projectNodes = projectList
+async function initProjectList() {
+  const projectListModule = await import(`../../data/projects/list.md`)
+  const nodes = projectListModule.default
 
   const nodeGroups = []
   let groupI = -1
-  for (let i = 0; i < projectNodes.length; i++) {
-    if (projectNodes[i].type[0] === 'h') {
+  for (let i = 0; i < nodes.length; i++) {
+    if (nodes[i].type[0] === 'h') {
       groupI++
       nodeGroups[groupI] = []
     }
 
     if (groupI > -1 && Array.isArray(nodeGroups[groupI])) {
-      nodeGroups[groupI].push(projectNodes[i])
+      nodeGroups[groupI].push(nodes[i])
     }
   }
   const projects: IProjectInfo[] = nodeGroups
@@ -48,7 +47,7 @@ async function initProjectContents() {
 }
 
 async function init() {
-  state.projectInfos = initProjectList()
+  state.projectInfos = await initProjectList()
   state.projects = await initProjectContents()
 }
 
