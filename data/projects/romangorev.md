@@ -47,7 +47,8 @@ Issues and rooms for improvement:
 - not automatic re-rendering. Works fine for static components (like footer), but dynamic components become quickly too large. But as I already mentioned I have some ideas of solving this problem.
 - project is basic and a lot of issues are just not discovered yet.
 - Since some parts (like JSX or Markdown loader) were developed by myself, they support only basic operations and have to be developed further as new components, tags, md syntax appear.
-  <br>
-  <br>
+
+<br>
+<br>
 
 In conclusion I would like to mention again that this is an experimental project. I’m not pretending to create another js library or framework. I know that my project could be easily done with something like gatsby or next.js and I am not trying to reinvent the wheel. I just believe that one learns better and gains a deeper understanding of other tools and their internal mechanisms when tries to implement similar stuff by oneself.
