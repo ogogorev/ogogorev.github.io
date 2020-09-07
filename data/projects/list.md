@@ -1,17 +1,17 @@
-### Project 1
+### romangorev
 
-short description of the project 1: it's an awesome project
+My personal website, created using typescript, jsx and webpack.
 
-project-1
+romangorev
 
-### Project 2
+### Telegram charts
 
-short description of the project 2: it's an awesome project
+Five different types of charts created usgin canvas.
 
-project-2
+telegram-charts
 
-### The biggest project
+### F1 Stats
 
-This project is very very big. Really BIG.
+Formula 1 statistics
 
-biggest-project
+f1-stats
