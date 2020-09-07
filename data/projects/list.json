@@ -1,0 +1,17 @@
+[
+  {
+    "title": "romangorev",
+    "text": "My personal website, created using typescript, jsx and webpack.",
+    "path": "romangorev"
+  },
+  {
+    "title": "Telegram charts",
+    "text": "Five different types of charts created using canvas.",
+    "path": "telegram-charts"
+  },
+  {
+    "title": "F1 Stats",
+    "text": "Formula 1 statistics",
+    "path": "f1-stats"
+  }
+]
