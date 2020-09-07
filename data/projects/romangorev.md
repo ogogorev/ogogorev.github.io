@@ -8,7 +8,6 @@ Main motive of this website: it's my personal website. So it introduces myself n
 
 Please don't judge the design too strict - I just wanted to make it simple and clean and did it intuitively.
 <br>
-<br>
 Here are a few key points that I would like to mention:
 
 ### The app is component-based
@@ -41,14 +40,12 @@ Since I'm going to introduce more projects in the future, I wanted to simplify a
 
 The solution is quite obvious - I’m using markdown files. I collect them in the data folder and transform to json objects at build time. To achieve that I created markdown loader - it's very simple and naive. Then at runtime I store jsons with project data in the state and transform json objects to html. So as you probably see, there is a big opportunity to improve it by transforming jsons to html at build time. But I don't have a lot of data, it doesn't affect the performance.
 <br>
-<br>
 Issues and rooms for improvement:
 
 - not automatic re-rendering. Works fine for static components (like footer), but dynamic components become quickly too large. But as I already mentioned I have some ideas of solving this problem.
 - project is basic and a lot of issues are just not discovered yet.
 - Since some parts (like JSX or Markdown loader) were developed by myself, they support only basic operations and have to be developed further as new components, tags, md syntax appear.
 
-<br>
 <br>
 
 In conclusion I would like to mention again that this is an experimental project. I’m not pretending to create another js library or framework. I know that my project could be easily done with something like gatsby or next.js and I am not trying to reinvent the wheel. I just believe that one learns better and gains a deeper understanding of other tools and their internal mechanisms when tries to implement similar stuff by oneself.
