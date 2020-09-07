@@ -33,6 +33,9 @@ function transformNode(node: IJSONNode) {
       return <ul>{node.content.map(e => transformNode(e))}</ul>
     case 'li':
       return <li>{node.content}</li>
+    case 'link':
+      const linkNode = node as any
+      return <a href={linkNode.href}>{linkNode.content}</a>
     default:
       return null
   }

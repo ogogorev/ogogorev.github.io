@@ -17,10 +17,17 @@ function parseP(str) {
   return { type: 'p', content: str }
 }
 
+function parseLink(str) {
+  const parsed = str.match(/\[(.*)\]\((.*)\)/)
+  if (parsed && parsed.length && parsed[1] && parsed[2]) {
+    return { type: 'link', href: parsed[2], content: parsed[1] }
+  } else {
+    return null
+  }
+}
+
 module.exports = function parseMarkdown(str) {
-  const rawArray = str
-    .split('\r\n')
-    .filter(e => !!e)
+  const rawArray = str.split('\r\n').filter(e => !!e)
 
   const parsed = []
 
@@ -28,7 +35,7 @@ module.exports = function parseMarkdown(str) {
     switch (rawArray[i][0]) {
       case '#':
         parsed.push(parseHeading(rawArray[i]))
-        break;
+        break
 
       case '-':
         const content = []
@@ -39,7 +46,16 @@ module.exports = function parseMarkdown(str) {
         }
         i--
         parsed.push({ type: 'l', content })
-        break;
+        break
+
+      case '[':
+        const parsedLink = parseLink(rawArray[i])
+        if (parsedLink) {
+          parsed.push(parsedLink)
+        } else {
+          parsed.push(parseP(rawArray[i]))
+        }
+        break
 
       default:
         parsed.push(parseP(rawArray[i]))
