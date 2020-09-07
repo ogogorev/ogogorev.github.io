@@ -4,7 +4,7 @@ import { Link, getCurrentPath } from '../../helpers/router'
 import state from '../../state/state'
 
 import './projects.scss'
-import { transformJsonToDOM } from '../../helpers/json-to-dom'
+import { transformJsonToDOM } from '../../helpers/json-to-jsx-dom'
 import BurgerIcon from '../../components/burger-icon/burger-icon'
 
 function Card({ data }) {
