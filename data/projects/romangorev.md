@@ -4,7 +4,7 @@
 
 My personal website, created using typescript, jsx and webpack.
 
-Main motive of this website: it's my personal website. So it introduces myself not only by its content but by its implementation as well. Many of things I implemented here I have done first time, so this project can be considered as experimental. But despite that and all the difficulties I have gone through, I'm satisfied with the result and I am optimistic about the future ways of development and scalability.
+Main motive of this website: it's my personal website. So it introduces myself not only by its content but by its implementation as well. Many things I implemented here I have done first time, so this project can be considered as experimental. But despite that and all the difficulties I have gone through, I'm satisfied with the result and I am optimistic about the future ways of development and scalability.
 
 Please don't judge the design too strict - I just wanted to make it simple and clean and did it intuitively.
 <br>
@@ -28,7 +28,7 @@ My `createElement` function is simple: it recognizes what type current tagName h
 
 ### Simple router
 
-I implemented basic version of router. It listens to url updates and mounts appropriate component into the container div. Similar to many of libraries and frameworks I created Link component for internal links.
+I implemented basic version of router. It listens to url updates and mounts appropriate component into the container div. Similar to many libraries and frameworks I created Link component for internal links.
 
 The router supports only first level paths, so following path `/projects/my-project` is handled by the component mounted for `/projects` path. However it's still working well in my case as each project component is displayed inside projects page.
 
