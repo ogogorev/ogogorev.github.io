@@ -10,10 +10,12 @@ import Header from './components/header/header'
 import Footer from './components/footer/footer'
 
 import './styles/styles.scss'
+import About from './pages/about/about'
 
 const routes = {
   '': Home,
   projects: Projects,
+  about: About,
 }
 
 async function main() {
