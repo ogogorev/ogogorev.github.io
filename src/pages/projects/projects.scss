@@ -1,5 +1,4 @@
-@import '../../styles/breakpoints.scss';
-@import '../../styles/colors.scss';
+@import '../../styles/styles.scss';
 
 // .projects-container {}
 
@@ -131,7 +130,7 @@
   &:hover {
     #{$r}__title {
       span {
-        border-bottom: 2px solid $main-color;
+        border-bottom: $line-width solid $main-color;
       }
     }
   }
@@ -160,13 +159,11 @@
     color: hotpink;
   }
 
-  // TODO: Should be global styles (link)
   a {
-    color: #aaa;
-    text-decoration: none;
+    @extend .link;
 
-    &:hover {
-      border-bottom: 2px solid $main-color;
+    & + a {
+      margin-left: 10px;
     }
   }
 
