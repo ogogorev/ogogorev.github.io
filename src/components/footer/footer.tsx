@@ -34,7 +34,7 @@ export default function Footer() {
       <div className="footer__content">
         <div className="footer__menu margin">
           <Link href="/about" className="footer__link">
-            ABOUT ME
+            ABOUT
           </Link>
           <div className="footer__external-links-container">
             <a
@@ -44,13 +44,13 @@ export default function Footer() {
             >
               <GithubIcon />
             </a>
-            <a
+            {/* <a
               href="https://de.linkedin.com/"
               target="_blank"
               className="footer__link"
             >
               <LinkedInIcon />
-            </a>
+            </a> */}
           </div>
         </div>
       </div>
