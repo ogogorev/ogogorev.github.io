@@ -34,7 +34,7 @@ export default function Footer() {
       <div className="footer__content">
         <div className="footer__menu margin">
           <Link href="/about" className="footer__link">
-            ABOUT
+            about
           </Link>
           <div className="footer__external-links-container">
             <a
