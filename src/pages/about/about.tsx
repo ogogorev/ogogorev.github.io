@@ -5,7 +5,7 @@ import './about.scss'
 const About = () => {
   const root = (
     <div className="about-page margin">
-      <p>I will introduce myself soon :)</p>
+      <p>I will introduce myself soon 🙂</p>
     </div>
   )
 
