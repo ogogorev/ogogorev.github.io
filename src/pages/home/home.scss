@@ -18,6 +18,12 @@
 
   @include desktop-up() {
     h1 {
+      margin-top: 120px;
+    }
+  }
+
+  @include very-large-desktop-up() {
+    h1 {
       margin-top: 160px;
     }
   }

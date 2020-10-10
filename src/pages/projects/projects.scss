@@ -13,6 +13,10 @@
   }
 
   @include desktop-up() {
+    padding-top: 80px;
+  }
+
+  @include very-large-desktop-up() {
     padding-top: 160px;
   }
 
