@@ -33,9 +33,21 @@ export default function Footer() {
     <div className="footer">
       <div className="footer__content">
         <div className="footer__menu margin">
-          <Link href="/about" className="footer__link">
-            about
-          </Link>
+          <div>
+            <Link href="/about" className="footer__link">
+              about
+            </Link>
+            <a href="mailto:r.gorev@web.de" className="footer__link">
+              contact
+            </a>
+            <a
+              href="https://www.notion.so/CV-Roman-Gorev-921f569f7add41fcb326c3e907ae1b9f"
+              className="footer__link"
+              target="_blank"
+            >
+              cv
+            </a>
+          </div>
           <div className="footer__external-links-container">
             <a
               href="https://github.com/ogogorev"
