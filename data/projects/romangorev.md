@@ -12,7 +12,7 @@ Here are a few key points that I would like to mention:
 
 ### The app is component-based
 
-I tried to split the app into components. It might seem similar to functional components in React - I use functions that get props as parameters and return root element with html, but there is some differences. My component function called only once - at initialization, and will be not re-rendered at runtime. It means that every component should update itself explicitly. I consider this rather as issue then as feature and have some ideas of improving it.
+I tried to split the app into components. It might seem similar to functional components in React - I use functions that get props as parameters and return root element with html, but there are some differences. My component function called only once - at initialization, and will be not re-rendered at runtime. It means that every component should update itself explicitly. I consider this rather as an issue then as a feature and have some ideas of improving it.
 
 ### This project has no dependencies
 
@@ -22,7 +22,7 @@ I mean, it's written using Typescript and built with Webpack, but without any ot
 
 I really like the jsx syntax and wanted to use it in this project. It turned out that it's not so easy to do so without React.
 
-Basically I could achieve that by exporting of a namespace in the `index.tsx`. The exported namespace defines `createElement` function that will be called each time a new node is created in jsx. I could simply export my namespace as 'React', because React is default namespace that is used when compiling jsx. But in fact you can export your namespace using any name you want, you need only to specify this name in the `tsconfig.json`: `reactNamespace: "JSX"`.
+Basically I could achieve that by exporting of a namespace in the `index.tsx`. The exported namespace defines `createElement` function that will be called each time a new node is created in jsx. I could simply export my namespace as 'React', because React is default namespace that is used when compiling jsx. But in fact you can export your namespace using any name you want, you only need to specify this name in the `tsconfig.json`: `reactNamespace: "JSX"`.
 
 My `createElement` function is simple: it recognizes what type current tagName has and calls appropriate function: `document.createElement` for intrinsic elements and tagName itself if it's a functional component.
 
@@ -32,13 +32,13 @@ I implemented basic version of router. It listens to url updates and mounts appr
 
 The router supports only first level paths, so following path `/projects/my-project` is handled by the component mounted for `/projects` path. However it's still working well in my case as each project component is displayed inside projects page.
 
-Besides handling of sub-routes, my next goal for router is to make possible to add custom animations when mounting/unmounting components. Strangely I haven't seen a lot routers that allow doing some cool transitions between pages. I might have overlooked it though.
+Besides handling of sub-routes, my next goal for router is to make possible to add custom animations when mounting/unmounting components. Strangely I haven't seen a lot of routers that allow doing some cool transitions between pages. I might have overlooked it though.
 
 ### Markdown loader
 
 Since I'm going to introduce more projects in the future, I wanted to simplify adding of new projects (and other contents). And ideally I should be able add them without any knowledge about project structure and other internal implementations.
 
-The solution is quite obvious - I’m using markdown files. I collect them in the data folder and transform to json objects at build time. To achieve that I created markdown loader - it's very simple and naive. Then at runtime I store jsons with project data in the state and transform json objects to html. So as you probably see, there is a big opportunity to improve it by transforming jsons to html at build time. But I don't have a lot of data, it doesn't affect the performance.
+The solution is quite obvious - I’m using markdown files. I collect them in the data folder and transform to json objects at build time. To achieve that I created markdown loader - it's very simple and naive. Then at runtime I store jsons with project data in the state and transform json objects to html. So as you probably see, there is a big opportunity to improve it by transforming jsons to html at build time. But currently I don't have a lot of data, so it does not affect the performance.
 <br>
 Issues and rooms for improvement:
 
