@@ -20,7 +20,14 @@ export function Router({ routes }) {
 }
 
 export function getCurrentPath(): string[] {
-  const pathname = window.location.pathname.replace(/^\//, '').split('/')
+  let pathname = window.location.pathname.replace(/^\//, '').split('/')
+  if (pathname.length === 0 && localStorage.getItem('redirection-route')) {
+    pathname = localStorage
+      .getItem('redirection-route')
+      .replace(/^\//, '')
+      .split('/')
+    localStorage.removeItem('redirection-route')
+  }
   return pathname
 }
 
@@ -53,7 +60,7 @@ export function navigate(path: string) {
 
 function sendRouteChangeEvent() {
   const routeChangeEvent = new CustomEvent('route-change', {
-    detail: { currentPath: getCurrentPath() }
+    detail: { currentPath: getCurrentPath() },
   })
   window.dispatchEvent(routeChangeEvent)
 }
