@@ -20,15 +20,17 @@ export function Router({ routes }) {
 }
 
 export function getCurrentPath(): string[] {
-  let pathname = window.location.pathname.replace(/^\//, '').split('/')
-  if (pathname.length === 0 && localStorage.getItem('redirection-route')) {
-    pathname = localStorage
-      .getItem('redirection-route')
-      .replace(/^\//, '')
-      .split('/')
+  let pathname = window.location.pathname
+  // if we are on the root and there is a saved route in the lcoal storage
+  // (that indicates that we got redirected from 404 page),
+  // then we take the route from the local storage
+  // This is needed because github pages can't handle routes for SPA apps
+  if (pathname === '/' && localStorage.getItem('redirection-route')) {
+    pathname = localStorage.getItem('redirection-route')
+    window.history.replaceState(null, null, pathname)
     localStorage.removeItem('redirection-route')
   }
-  return pathname
+  return pathname.replace(/^\//, '').split('/')
 }
 
 function mountRoute(root, routes) {
