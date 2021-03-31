@@ -97,7 +97,11 @@ function parseLineBreak(str) {
 
 module.exports = function parseMarkdown(str) {
   // function parseMarkdown(str) {
-  const rawArray = str.split('\r\n').filter(e => !!e)
+  // \n for unix line endings 
+  // const rawArray = str.split('\r\n').filter(e => !!e)
+  const rawArray = str.split('\n').filter(e => !!e)
+
+  console.log('RAW ARRAY', rawArray);
 
   const parsed = []
 
@@ -147,7 +151,7 @@ module.exports = function parseMarkdown(str) {
 }
 
 // const fs = require('fs')
-// const PATH = './data/projects/romangorev.md'
+// const PATH = './data/projects/telegram-charts.md'
 // const fileContent = fs.readFileSync(PATH, { encoding: 'utf-8' })
 
 // console.log(
