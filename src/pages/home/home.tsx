@@ -9,8 +9,8 @@ export default function Home() {
       <h1 classnName="title">Roman Gorev</h1>
 
       <p>
-        Front-end developer, based in Frankfurt, Germany. <br />
-        Currently working at Accenture. <br /> <br />
+        Front-end developer. <br />
+        Currently looking for a new challenge. <br /> <br />
         Don't hesitate to take a look at my{' '}
         <Link href="/projects">projects</Link>.
       </p>
