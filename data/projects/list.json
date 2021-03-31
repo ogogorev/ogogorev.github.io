@@ -1,8 +1,13 @@
 [
   {
-    "title": "romangorev",
-    "text": "My personal website, created using typescript, jsx and webpack.",
-    "path": "romangorev"
+    "title": "Job postings",
+    "text": "Simple landing page displaying a list with job postings",
+    "path": "job-postings"
+  },
+  {
+    "title": "Authentication demo page",
+    "text": "",
+    "path": "auth-demo"
   },
   {
     "title": "Telegram charts",
@@ -10,8 +15,8 @@
     "path": "telegram-charts"
   },
   {
-    "title": "F1 Stats",
-    "text": "Formula 1 statistics",
-    "path": "f1-stats"
+    "title": "romangorev",
+    "text": "My personal website, created using typescript, jsx and webpack.",
+    "path": "romangorev"
   }
 ]
