@@ -43,10 +43,10 @@ const About = () => {
         front-end knowledge.
       </p>
 
-      <p>
+      {/* <p>
         Since February 2019 I am working at Accenture as a front-end developer
         and now I'm ready to take the next step.
-      </p>
+      </p> */}
     </div>
   )
 
