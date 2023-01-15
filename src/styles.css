@@ -4,11 +4,23 @@
   --primary-dark: #7fc6a4;
   --secondary: #ffc9b9;
 
-  --offset: 8px;
+  --offset: 16px;
 
   --svg-size: 60px;
 
   --project-img-width: 300px;
+}
+
+@media screen and (min-width: 425px) {
+  :root {
+    --offset: 32px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  :root {
+    --offset: 48px;
+  }
 }
 
 body {
@@ -32,15 +44,11 @@ a:hover {
   border-bottom: 2px solid var(--primary-dark);
 }
 
-ul {
-  margin: 0;
-  padding: 0;
-}
-
 header {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  border-bottom: 1px solid var(--primary-dark);
 }
 
 header svg {
@@ -49,11 +57,78 @@ header svg {
   margin-left: calc(var(--svg-size) / -2 + var(--svg-size) / 10);
 }
 
+.links a {
+  margin-left: 8px;
+}
+
+.info {
+  margin-bottom: 64px;
+  padding: 16px;
+}
+
+.info-item {
+  margin-bottom: 12px;
+}
+
+.projects {
+  margin: 0;
+  padding: 0;
+}
+
 .project {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  margin-bottom: 40px;
+
   list-style-type: none;
 }
 
+.project-info {
+  margin-bottom: 16px;
+}
+
+.project-info h4 {
+  margin-bottom: 8px;
+}
+
+.project-info a {
+  font-size: 16px;
+  color: var(--primary-dark);
+}
+
+.project-img-link:hover {
+  border-bottom: none;
+}
+
 .project img {
-  width: var(--project-img-width);
   border-radius: 8px;
+  width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+  body {
+    max-width: 704px;
+    margin: 0 auto;
+  }
+
+  .projects {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .project {
+    width: 50%;
+    flex-direction: column-reverse;
+    box-sizing: border-box;
+
+    padding-right: 16px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  h1 {
+    margin-top: 64px;
+  }
 }
