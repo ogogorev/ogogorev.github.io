@@ -94,6 +94,8 @@ header svg {
 }
 
 .project-info a {
+  margin-right: 4px;
+
   font-size: 16px;
   color: var(--primary-dark);
 }
